@@ -1,0 +1,27 @@
+<!-- dashboard for user-->
+<% include ../partials/header.ejs %>
+<% include ../partials/navbar.ejs %>
+<main class="container">
+   
+<font color="green"><b><i><h2>Survey</h2></b></i></font>
+    <a href="/multiple/add">Create New Survey</a>
+ 
+   <table>
+   <% for (var i = 0; i < mcq.length; i++) {
+  
+    %>
+ 
+    <tr>
+     
+      <td colspan="3"><a href=""> <font color="green"><b><i><h5><%= mcq[i] %></h5></b></i></font></a></td>
+      
+    </tr>
+    
+    
+ 
+   <% } %>
+</table>
+
+   
+</main>
+<% include ../partials/footer.ejs %>

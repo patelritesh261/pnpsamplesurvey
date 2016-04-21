@@ -1,0 +1,52 @@
+<!-- This is the template used to get surveylist for user-->
+<% include ../partials/header.ejs %>
+<% include ../partials/navbar.ejs %>
+<main class="container">
+   
+<font color="green"><b><i><h2><%= surveyname %></h2></b></i></font>
+ 
+     <table class="table table-inverse">
+   <% for (var i = 0; i < mcq.length; i++) {
+    if(mcq[i].displayName == displayName  )
+        {
+        if(mcq[i].surveyName==surveyname){
+    %>
+  <tbody>
+    <tr>
+     
+      <th colspan="8"><%= mcq[i].question %></th>
+      
+    </tr>
+    <tr>
+      <td width="5%">A</td>
+      <td width="20%"><%= mcq[i].option1 %></td>
+      <td  width="5%">B</td>
+      <td width="20%"><%= mcq[i].option2 %></td>
+      <td width="5%">C</td>
+      <td width="20%"><%= mcq[i].option3 %></td>
+      <td  width="5%">D</td>
+      <td width="20%"><%= mcq[i].option4 %></td>
+    </tr>
+   
+    
+  </tbody>
+   <% }} }  %>
+     </table>
+
+       
+
+   <form action="/respond/presend" method="get">
+                                            
+                                          
+                                               <input type="hidden" name="surveyName" value="<%= surveyname %>"/>
+                                             <input type="hidden" name="displayName" value="<%= displayName %>"/>
+                                              <input type="hidden" name="surveyType" value="multiple"/>
+                                             
+                                               <input type="email" name="fromadd" placeholder="Email"/>
+                                           <a href=""> <button type="submit" class="btn btn-success" >Generate Survey</button></a>
+                                           <!--   <a href="users/add"> <font color="green"><b><i><h5><%= mcq[i] %></h5></b></i></font></a>-->
+                                               </form>
+                                              
+</main>
+</div>
+<% include ../partials/footer.ejs %>

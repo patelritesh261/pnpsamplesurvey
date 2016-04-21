@@ -1,0 +1,65 @@
+<!-- Survey create page with all the details of new survey-->
+<% include ../partials/header.ejs %>
+<% include ../partials/navbar.ejs %>
+<main class="container">
+    
+ <div class="row">
+        <div class="col-md-offset-2 col-md-9">
+           
+             <font color="green"><b><i><h2>Create Survey</h2></b></i></font>
+   <form method="post" class="form-horizontal">
+       <div class="form-group">
+           <label for="surveytype" class="col-sm-2 control-label">Survey Type:</label>
+           <div class="col-sm-1">
+<input type="radio" name="group1" id="mcq" value="multiple" checked></div><div class="col-sm-3"> Multiple Choice Question
+           </div>
+            <div class="col-sm-1">
+<input type="radio" name="group1" id="ad" value="agreedisadree" ></div><div class="col-sm-3"> Agree/Disagree<br>
+           </div>
+</div>
+  <div class="form-group">
+    <label for="surveyname" class="col-sm-2 control-label">Survey Name:</label>
+    <div class="col-sm-7">
+     <input type="text" class="form-control" name="surveyname"   placeholder="Survey Name" required autofocus/>
+    </div>
+  </div>
+  <div class="form-group">
+   
+    <div class="col-sm-7">
+     <input type="hidden" class="form-control" name="surveytype" id="demo"  placeholder="Survey Name" value="mcq" />
+    </div>
+  </div>
+
+     <div class="form-group text-right">
+         <div class="col-md-3 col-md-offset-3">
+                    
+                        <input type="submit" onclick="myFunction()" class="btn btn-success" value="Create Survey"/>
+                   
+         </div>
+          <div class="col-md-3 ">
+                    <a href="/users">
+                        <input type="button" class="btn btn-warning" value="Cancel"/>
+                    </a>
+                </div>
+                
+   </form>
+  
+        </div>
+ </div>
+ 
+ 
+
+<script>
+function myFunction() {
+  
+    if(document.getElementById("mcq").checked == true){
+ document.getElementById("demo").value = "multiple";
+}
+else{
+    document.getElementById("demo").value = "ad";
+    
+}
+   
+}
+</script>
+<% include ../partials/footer.ejs %>
