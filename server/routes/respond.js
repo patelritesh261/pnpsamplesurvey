@@ -22,11 +22,11 @@ router.get('/presend', requireAuth, function (req, res, next) {
     var ss = req.query;
     var sendgrid = require("sendgrid")("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");
     var email = new sendgrid.Email();
-    var domain = "pnpsamplesurvey.azurewebsites.net/respond";
+    var domain = "pnpinfotech.azurewebsites.net/respond";
     email.addTo(ss.fromadd);
     email.setFrom("patelritesh261@gmail.com");
     email.setSubject("Plese give your important feedbak.");
-    email.setHtml("<html><body><main><h2>HI There,</main><h4>Please do following survey and give your feedback</h4><table><tr><td>Survey Name : </td><td>" + ss.surveyName + "</td></tr><tr><td>Created By : </td><td>" + ss.displayName + "</td></tr><tr><td>Link for feedback :  </td>http://pnpsamplesurvey.azurewebsites.net/respond/" + ss.displayName + "/" + ss.surveyType + "/" + ss.surveyName + "/" + ss.fromadd + "<td></td></tr></table></body></html>");
+    email.setHtml("<html><body><main><h2>HI There,</main><h4>Please do following survey and give your feedback</h4><table><tr><td>Survey Name : </td><td>" + ss.surveyName + "</td></tr><tr><td>Created By : </td><td>" + ss.displayName + "</td></tr><tr><td>Link for feedback :  </td>http://pnpinfotech.azurewebsites.net/respond/" + ss.displayName + "/" + ss.surveyType + "/" + ss.surveyName + "/" + ss.fromadd + "<td></td></tr></table></body></html>");
     //email.setHtml("/respond/"+ss.displayName+"/"+ss.surveyType+"/"+ss.surveyName);
     sendgrid.send(email);
     // res.send(ss);
